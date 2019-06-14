@@ -25,10 +25,16 @@ import org.w3c.dom.css.Counter;
 * 
 */
 
-public class myThread extends Thread{
+class testThread extends Thread{
 
-	public static void main(String[] args) throws InterruptedException {
+	/*
+	 * >>>>>>>>>>>>>>>>>>>>>>>>
+	 * >>>>>>>>>>>>>>>>>>>>>
+	 * I put run here
+	 */
+	public void run() {
 
+		
 		//Get the number of available cores.
 		int CCount = Runtime.getRuntime().availableProcessors();
 		//Showing the number of cores.
@@ -53,11 +59,18 @@ public class myThread extends Thread{
 		 * order changes. This is due to which threads are 
 		 * finishing the task first and taking on another one.
 		 */
+		
+		
 		for (int i = 0; i < 20; i++) {
 			
 			if(i%5 == 0) {
 				//Make the thread wait before executing
-				Thread.sleep(2000);
+				try {
+					Thread.sleep(2000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				System.out.println("The system waited to run this program");
 				TPool.execute(new Task());
 			}
@@ -76,7 +89,7 @@ public class myThread extends Thread{
 				try {
 					int result = future.get();
 					System.out.println("Returning a number using a callable: " + result);
-				} catch (ExecutionException e) {
+				} catch (ExecutionException | InterruptedException e) {
 					e.printStackTrace();
 				};
 			}
@@ -94,6 +107,8 @@ public class myThread extends Thread{
 			}
 			
 		}
+		
+		
 
 		System.out.println();
 		System.out.println("Even the atomic counter runs through multiple threads it still returns correctly");
@@ -102,6 +117,21 @@ public class myThread extends Thread{
 		
 	}
 }
+
+/*
+ * I moved the main class extended Thread and called the testThread method which is run
+ * >>>>>>>>>>>>>>>>>>>>>>>>>
+ * >>>>>>>>>>>>>>>>>>>>>>
+ * >>>>>>>>>>>>>>>>>>>>>
+ */
+	public class myThread extends Thread {
+		public static void main(String[] args){
+			testThread thread1 = new testThread();
+			thread1.start();
+	}
+		
+	}
+	
 //Create a task for the CPU to run
 	class Task implements Runnable {
 		
