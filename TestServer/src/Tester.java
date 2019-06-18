@@ -54,18 +54,16 @@ public class Tester extends HttpServlet {
 						+ request.getParameter("last_name") + "\n" +
 						"</ul>\n" +
 						"<ul>\n" +
-						"  <li><b>First Name</b>: "
-						+ request.getParameter("first_name") + "\n" +
-						"  <li><b>Last Name</b>: "
-						+ request.getParameter("last_name") + "\n" +
+						"  <li><b>Identification #: </b>: "
+						+ request.getParameter("id") + "\n" +
+						"  <li><b>Year: </b>: "
+						+ request.getParameter("year") + "\n" +
 						"</ul>\n" +
 						"<ul>\n" +
-						"  <li><b>Maths Flag : </b>: "
-						+ request.getParameter("maths") + "\n" +
-						"  <li><b>Physics Flag: </b>: "
-						+ request.getParameter("physics") + "\n" +
-						"  <li><b>Chemistry Flag: </b>: "
-						+ request.getParameter("chemistry") + "\n" +
+						"  <li><b>Major: </b>: "
+						+ request.getParameter("major") + "\n" +
+						"  <li><b>School: Physics Flag: </b>: "
+						+ request.getParameter("school") + "\n" +
 						"</ul>\n" +
 						"</body></html>");}
 		//if something happens above when retrieving the web page, this try-catch block will catch 
