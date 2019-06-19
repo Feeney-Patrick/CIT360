@@ -1,0 +1,9 @@
+{
+  "id": 1,
+  "firstname": "Patrick",
+  "lastname": "Feeney",
+  "studentId": "9043jf0394gj",
+  "major": "financial economics",
+  "year": "senior",
+  "colors": ["blue", "red", "green"]
+}
